@@ -1,7 +1,9 @@
 # Dev Override Values for my Helm Chart
 
 container:
-  image: nginx
+  image: java2048/homechief
+
 
 replicaCount: 4
+
 
