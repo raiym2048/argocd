@@ -1,7 +1,7 @@
 # Dev Override Values for my Helm Chart
 
 container:
-  image: java2048/homechief
+  image:  java2048/java_test:latest
 
 
 replicaCount: 4
