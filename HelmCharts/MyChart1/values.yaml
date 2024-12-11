@@ -4,4 +4,13 @@ container:
   image:  java2048/java_test:latest
   postgres_image: postgres
 
+env:
+  - name: POSTGRES_USER
+    value: "postgres"
+  - name: POSTGRES_PASSWORD
+    value: ""
+  - name: POSTGRES_DB
+    value: "postgres"
+
+
 replicaCount: 1
