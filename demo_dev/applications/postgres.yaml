@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name     : myapp4
+  name     : mypostgres
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     name     : in-cluster
-    namespace: app4
+    namespace: postgres_db
   source:
     path   : "HelmCharts/MyChart1"
     repoURL: "git@github.com:raiym2048/argocd.git"
@@ -18,7 +18,7 @@ spec:
       - values_dev.yaml
       parameters:
       - name: "container.image"
-        value:  java2048/java_test:latest
+        value:  postgres
 
   project: default
   syncPolicy:
