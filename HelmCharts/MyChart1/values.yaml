@@ -2,5 +2,6 @@
 
 container:
   image:  java2048/java_test:latest
+  postgres_image: postgres
 
 replicaCount: 1

@@ -19,3 +19,8 @@ spec:
           image: {{ .Values.container.image }}
           ports:
             - containerPort: 8089
+      containers:
+        - name : {{ .Release.Name }}-bd
+          image: {{ .Values.container.postgres_image }}
+          ports:
+            - containerPort: 5432
