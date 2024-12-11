@@ -12,7 +12,7 @@ spec:
       protocol  : TCP
       port      : 80  # Port on Load Balancer
       targetPort: 8089  # Port on POD
-    - name      : {{ .Release.Name }}-listener
+    - name      : {{ .Release.Name }}-postgres
       protocol  : TCP
       port      : 5432  # Port on Load Balancer
       targetPort: 5432  # Port on POD
