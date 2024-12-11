@@ -3,6 +3,15 @@
 container:
   image:  java2048/java_test:latest
   postgres_image: postgres
+  env:
+    - name: POSTGRES_USER
+      value: "postgres"
+    - name: POSTGRES_PASSWORD
+      value: "1234"
+    - name: POSTGRES_DB
+      value: "postgres"
+    - name: POSTGRES_HOST_AUTH_METHOD
+      value: "trust"
 
 env:
   - name: POSTGRES_USER
