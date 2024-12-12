@@ -1,42 +1,23 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name     : myjavapost
+  name: myjavapost
   namespace: argocd
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    name     : in-cluster
+    name: in-cluster
     namespace: javapost
   source:
-    path   : "HelmCharts/MyChart1"
-    repoURL: "git@github.com:raiym2048/argocd.git"
+    path: "HelmCharts/MyChart1"
+    repoURL: "git@github.com:raiym2048/homechief.git"
     targetRevision: HEAD
     helm:
       valueFiles:
-      - values_dev.yaml
-      parameters:
-      - name: "container.image"
-        value:  java2048/homechief:latest
-
-      - name: "container.postgresImage"
-        value: postgres
-        env:
-          - name: POSTGRES_USER
-            value: "postgres"
-          - name: POSTGRES_PASSWORD
-            value: "1234"
-          - name: POSTGRES_DB
-            value: "postgres"
-          - name: POSTGRES_HOST_AUTH_METHOD
-            value: "trust"
-
+        - values_dev.yaml
   project: default
   syncPolicy:
     automated:
-      prune   : true
+      prune: true
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-

@@ -3,34 +3,33 @@ kind: Deployment
 metadata:
   name: {{ .Release.Name }}-deployment
   labels:
-    app: {{ .Release.Name }}-deployment
+    app: {{ .Release.Name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      project: {{ .Release.Name }}
+      app: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        project: {{ .Release.Name }}   # Service will look for those PODS Labels!!!
+        app: {{ .Release.Name }} # Сервис будет искать по этим меткам
     spec:
       containers:
         - name: {{ .Release.Name }}-web
           image: {{ .Values.container.image }}
           ports:
             - containerPort: 8090
-
         - name: {{ .Release.Name }}-bd
           image: {{ .Values.container.postgres_image }}
-          
           ports:
             - containerPort: 5432
           env:
             - name: POSTGRES_USER
-              value: "postgres"
+              value: {{ .Values.postgres_image.env[0].value }}
             - name: POSTGRES_PASSWORD
-              value: "1234"
+              value: {{ .Values.postgres_image.env[1].value }}
             - name: POSTGRES_DB
-              value: "postgres"
+              value: {{ .Values.postgres_image.env[2].value }}
             - name: POSTGRES_HOST_AUTH_METHOD
-              value: "trust"
+              value: {{ .Values.postgres_image.env[3].value }}
+ы

@@ -1,20 +1,17 @@
 # Dev Override Values for my Helm Chart
-
 container:
-  image:  java2048/homechief:latest
-  image2:  java2048/java_test:latest
+  image: java2048/homechief:latest
+  image2: java2048/java_test:latest
 
-  postgres_image: postgres
+postgres_image:
   env:
     - name: POSTGRES_USER
       value: "postgres"
     - name: POSTGRES_PASSWORD
-      value: "1234"
+      value: "1234" # Убедитесь, что значение не пустое
     - name: POSTGRES_DB
       value: "postgres"
     - name: POSTGRES_HOST_AUTH_METHOD
       value: "trust"
 
 replicaCount: 4
-
-
