@@ -20,7 +20,7 @@ spec:
       - name: "container.image"
         value:  java2048/homechief:latest
 
-      - name: "container.image"
+      - name: "container.postgresImage"
         value: postgres
         env:
           - name: POSTGRES_USER

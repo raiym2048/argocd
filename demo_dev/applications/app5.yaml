@@ -17,7 +17,7 @@ spec:
       valueFiles:
       - values_dev.yaml
       parameters:
-      - name: "container.image"
+      - name: "container.image2"
         value:  java2048/java_test:latest
 
   project: default
